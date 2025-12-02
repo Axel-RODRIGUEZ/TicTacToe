@@ -5,7 +5,7 @@ def restart_choice():
     # Loop to handle an error
     while True:
             # Asking the player
-            restart_choice = input("Voulez-vous rejouer ? (O/N)").lower()
+            restart_choice = input("Voulez-vous rejouer ? (O/N)\n").lower()
 
             # Breaking the actual while true, leading to the game while true
             if restart_choice == "o":
@@ -54,7 +54,36 @@ def gamemode1player(board, win, players, ai_sign):
     
     # re-using the function to handle player turn
     else:
-        gamemode2player(board, win, players)
+            # Print the grid    
+        print("\n", " | ".join(board[:3]))
+        print("---+---+---")
+        print("", " | ".join(board[3:6]))
+        print("---+---+---")
+        print("", " | ".join(board[6:]))
+
+        # Game loop (same as the player loop in the 1 player gamemode)
+        while True:
+            try:
+                choice = input(f"{players}, Choisissez un numéro : ")
+
+                if choice not in board:
+                    raise ValueError
+                
+                else:
+                    board[int(choice) - 1] = players
+                    break
+
+            except ValueError:
+                print("Entrez un nombre valide ")
+
+        # Win condition
+        for combo in win:
+            if all(board[choice] == players for choice in combo):
+                return combo
+            
+        # No return if no player win 
+        return None
+
 
 
 def gamemode2player(board, win, players):
