@@ -54,7 +54,8 @@ def gamemode1player(board, win, players, ai_sign):
     
     # re-using the function to handle player turn
     else:
-            # Print the grid    
+
+        # Printing the board
         print("\n", " | ".join(board[:3]))
         print("---+---+---")
         print("", " | ".join(board[3:6]))
@@ -88,7 +89,7 @@ def gamemode1player(board, win, players, ai_sign):
 
 def gamemode2player(board, win, players):
 
-    # Print the grid    
+        # Printing the board
     print("\n", " | ".join(board[:3]))
     print("---+---+---")
     print("", " | ".join(board[3:6]))
