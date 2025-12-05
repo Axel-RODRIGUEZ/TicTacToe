@@ -71,6 +71,15 @@ class Computer_Easy_Mode:
 class Computer_Normal_Mode:
     def computer_normal_mode(board, sign):
 
+        '''The computer play on a predefined cell if the player is about to win (not taking all the winning cond to be beatable), or play a randint
+        
+        PARAMETERS -
+        board : The grid the game is played on
+        sign : The sign the computer will play with
+        
+        RETURNS -
+        sign : Return the sign in the grid to update the game board'''
+
         while True:
             ai_choice = randint(1, 9)
 
@@ -115,6 +124,17 @@ class Computer_Normal_Mode:
         return sign
 
     def gamemode1player_normal_mode(board, win, players, ai_sign):
+        '''The process to play the game in normal mode
+        
+        PARAMETERS -
+        board : The grid the game is played on
+        win : To check if someone win
+        players : Take the actual player sign to check if it is the program turn or not
+        ai_sign : Dynamic way to change the computer sign without changing everything 
+        
+        RETURNS - 
+        return combo : check if any combo is valid, then return it to valid the win
+        return None : return nothing and continue the game if there's no winner'''
 
         if players == ai_sign:
             Computer_Normal_Mode.computer_normal_mode(board, ai_sign)
@@ -149,45 +169,6 @@ class Computer_Normal_Mode:
                 
             return None
 
-class Computer_Hard_Mode:
-    def computer_hard_mode(board, sign):
-        ''
-
-    def gamemode1player_hard_mode(board, win, players, ai_sign):
-
-        if players == ai_sign:
-            Computer_Easy_Mode.computer(board, ai_sign)
-
-            for combo in win:
-                if all(board[ai_sign] == players for ai_sign in combo):
-                    return combo
-                
-            return None
-        
-        else:
-
-            tableau(board)
-
-            while True:
-                try:
-                    choice = input(f"{players}, Choisissez un numéro : ")
-
-                    if choice not in board:
-                        raise ValueError
-                    
-                    else:
-                        board[int(choice) - 1] = players
-                        break
-
-                except ValueError:
-                    print("Entrez un nombre valide ")
-
-            for combo in win:
-                if all(board[choice] == players for choice in combo):
-                    return combo
-                
-            return None
-        
 def restart_choice():
     '''Reusable code to let the player choose to replay or not
     
@@ -233,7 +214,7 @@ def gamemode2player(board, win, players):
     RETURNS - 
     return combo : check if any combo is valid, then return it to valid the win
     return None : return nothing and continue the game if there's no winner'''
-    
+
     tableau(board)
 
     while True:

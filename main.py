@@ -9,16 +9,16 @@ combos = (
 
 )
 
-
-
 while True:
 
+    print("")
     gamemode_choice = input("1 - Mode solo\n2 - Mode 2 joueurs\n3 - Quitter\n")
 
     # Solo mode
     if gamemode_choice == "1":
         while True : 
-            difficulty = input("1 - Mode facile\n2 - Mode normal\n3 - Mode Difficile\n")
+            print("")
+            difficulty = input("1 - Mode facile\n2 - Mode normal\n3 - Revenir en arrière\n")
 
             if difficulty == "1":
                     grid = ["1","2","3","4","5","6","7","8","9"]
@@ -69,11 +69,8 @@ while True:
                     print("Il y a eu égalité.")
 
                 restart_choice()
-                
-            elif difficulty == "3":
-                'Difficulté difficile'
 
-            elif difficulty == "4":
+            elif difficulty == "3":
                 break
 
             else:
