@@ -13,15 +13,15 @@ while True:
 
     print("")
     gamemode_choice = input("1 - Mode solo\n2 - Mode 2 joueurs\n3 - Quitter\n")
-
+    grid = ["1","2","3","4","5","6","7","8","9"]
     # Solo mode
     if gamemode_choice == "1":
         while True : 
             print("")
             difficulty = input("1 - Mode facile\n2 - Mode normal\n3 - Revenir en arrière\n")
+            grid = ["1","2","3","4","5","6","7","8","9"]
 
             if difficulty == "1":
-                    grid = ["1","2","3","4","5","6","7","8","9"]
                     player1 = "X"
                     ai = "O"
                     player = player1
@@ -46,7 +46,6 @@ while True:
                     restart_choice()
 
             elif difficulty == "2":
-                grid = ["1","2","3","4","5","6","7","8","9"]
                 player1 = "X"
                 ai = "O"
                 player = player1
